@@ -82,7 +82,7 @@ writer.end()
   await page.waitForXPath(newxpath)
   var nextPage=await page.$x(newxpath)
   await nextPage[0].click();
-  await page.waitForNavigation();
+  await page.waitForNavigation(['networkidle0']);
   
 
   j=j+1;
