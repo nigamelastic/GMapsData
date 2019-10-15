@@ -1,0 +1,19 @@
+const csv = require('csv-parser');
+const fs = require('fs');
+
+const filepath = "./scrappyfeeder.csv"
+
+fs.createReadStream(filepath)
+    .on('error', () => {
+        // handle error
+    })
+
+    .pipe(csv())
+    .on('data', (row) => {
+      let str = `${row["source.ip"]}`
+        console.log(str);
+    })
+
+    .on('end', () => {
+        // handle end of CSV
+    })
